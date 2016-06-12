@@ -1,0 +1,41 @@
+{
+	"ImportPath": "github.com/konghui/mysql-metrics",
+	"GoVersion": "go1.6",
+	"GodepVersion": "v72",
+	"Deps": [
+		{
+			"ImportPath": "github.com/golang/glog",
+			"Rev": "23def4e6c14b4da8ac2ed8007337bc5eb5007998"
+		},
+		{
+			"ImportPath": "github.com/open-falcon/common/model",
+			"Rev": "b6dbd8f707b94dd68a63c4d9dfad7aa6f6355dba"
+		},
+		{
+			"ImportPath": "github.com/open-falcon/common/utils",
+			"Rev": "b6dbd8f707b94dd68a63c4d9dfad7aa6f6355dba"
+		},
+		{
+			"ImportPath": "github.com/toolkits/file",
+			"Rev": "a5b3c5147e07f934d9f9d00b901a20b2529f1a57"
+		},
+		{
+			"ImportPath": "github.com/toolkits/net",
+			"Rev": "d60cc35d68b7c7a319278619e961d8208d667277"
+		},
+		{
+			"ImportPath": "github.com/toolkits/time",
+			"Rev": "2db8426e29dc013ddfed4060dbc477cf0675fd87"
+		},
+		{
+			"ImportPath": "github.com/ziutek/mymysql/mysql",
+			"Comment": "v1.5.4-14-ge5d54eb",
+			"Rev": "e5d54ebfda3f8a15e7b192b65c2aa10cb4fd7e04"
+		},
+		{
+			"ImportPath": "github.com/ziutek/mymysql/native",
+			"Comment": "v1.5.4-14-ge5d54eb",
+			"Rev": "e5d54ebfda3f8a15e7b192b65c2aa10cb4fd7e04"
+		}
+	]
+}
