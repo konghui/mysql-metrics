@@ -132,7 +132,6 @@ func collect(db []string) {
 			if err != nil {
 				glog.Warningf(err.Error())
 			}
-
 		}
 	}
 }
