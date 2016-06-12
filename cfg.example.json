@@ -1,0 +1,52 @@
+{
+    "debug": true,
+    "attachtags": "",
+    "http": {
+        "enable": false,
+        "listen": "0.0.0.0:1987"
+    },
+    "transfer": {
+        "enable": true,
+        "addr": "http://127.0.0.1:1988/v1/push",
+        "interval": 30,
+        "timeout": 1000
+    },
+    "daemon": {
+        "enable": true,
+        "timeout": 5,
+	"prefix":"mysql.",
+        "db" : [
+            "larry:000000@tcp(10.10.221.123:3306)",
+            "larry:000000@tcp(10.10.221.124:3306)",
+            "larry:000000@tcp(10.10.221.125:3306)",
+            "larry:000000@tcp(127.0.0.1:3306)"
+	]
+    },
+    "metrics": {
+	    "mysql_alive_local":	1,
+	    "Is_slave":			1,
+	    "Slave_IO_Running":		1,
+	    "Slave_SQL_Running":	1,
+	    "Relay_Log_Pos":		1,
+	    "Read_Master_Log_Pos":	1,
+	    "Exec_Master_Log_Pos":	1,
+	    "Opened_files":		0,
+	    "Innodb_mutex_spin_waits":	0,
+	    "Innodb_mutex_spin_rounds":	0,
+	    "Innodb_mutex_os_waits":	0,
+	    "Slave_count": 		0,
+	    "Binlog_event_count": 	0,
+	    "Table_locks_immediate": 	0,
+	    "Queries":			0,
+	    "Threads_created":		0,
+	    "Opened_tables":		0,
+	    "Qcache_hits":		0,
+	    "Qcache_inserts":		0,
+	    "Qcache_lowmem_prunes":	0,
+	    "Qcache_not_cached":	0,
+	    "Slow_queries":		0,
+	    "Threads_connected":	0,
+	    "Connections":		0
+    }
+}
+
