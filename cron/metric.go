@@ -2,14 +2,9 @@ package cron
 
 import (
 	"fmt"
-	"regexp"
 	"time"
 
 	"github.com/open-falcon/common/model"
-)
-
-const (
-	MYSQL_DSN_PARTTERN = "(?P<user>[a-zA-Z]+):(?P<passwd>.*)@(?P<proto>[a-zA-Z]+)\\((?P<ip>[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+):(?P<port>[0-9]+)\\)"
 )
 
 const (
@@ -23,8 +18,6 @@ var Type = [...]string{
 	"COUNTER",
 	"NOEXIST",
 }
-
-var MysqlDsnParttern = regexp.MustCompile(MYSQL_DSN_PARTTERN)
 
 func dataType(key_ int) (rv string) {
 	return Type[key_]

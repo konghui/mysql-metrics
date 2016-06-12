@@ -2,12 +2,19 @@ package cron
 
 import (
 	"fmt"
+	"regexp"
 	"strconv"
 
 	"github.com/golang/glog"
 	"github.com/ziutek/mymysql/mysql"
 	_ "github.com/ziutek/mymysql/native"
 )
+
+const (
+	MYSQL_DSN_PARTTERN = "(?P<user>[a-zA-Z]+):(?P<passwd>.*)@(?P<proto>[a-zA-Z]+)\\((?P<ip>[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+):(?P<port>[0-9]+)\\)\\?(?P<tag>.*)"
+)
+
+var MysqlDsnParttern = regexp.MustCompile(MYSQL_DSN_PARTTERN)
 
 type MysqlIns struct {
 	host     string
@@ -46,8 +53,7 @@ func ParseDsn(dsn string) (my *MysqlIns, err error) {
 			return
 		}
 
-		my = &MysqlIns{userName: paramList[1], passwd: paramList[2], proto: paramList[3], host: paramList[4], port: port, tag: fmt.Sprintf("port=%d", port)}
-
+		my = &MysqlIns{userName: paramList[1], passwd: paramList[2], proto: paramList[3], host: paramList[4], port: port, tag: paramList[6]}
 	}
 	return
 }
