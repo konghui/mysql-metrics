@@ -14,24 +14,13 @@
     "daemon": {
         "enable": true,
         "timeout": 5,
-<<<<<<< HEAD
-	"prefix":"mysql.",
-	"flag":"port, host, user, name, proto",
+        "prefix":"mysql.",
         "db" : [
             "larry:000000@tcp(10.10.221.123:3306)?port=3306,test=ok,plat=server",
             "larry:000000@tcp(10.10.221.124:3306)?port=3306,test=ok,plat=server",
             "larry:000000@tcp(10.10.221.125:3306)?port=3306,test=ok,plat=server",
             "larry:000000@tcp(127.0.0.1:3306)?port=3306,test=ok,plat=laptop"
-	]
-=======
-        "prefix":"mysql.",
-        "db" : [
-            "larry:000000@tcp(10.10.221.123:3306)",
-            "larry:000000@tcp(10.10.221.124:3306)",
-            "larry:000000@tcp(10.10.221.125:3306)",
-            "larry:000000@tcp(127.0.0.1:3306)"
         ]
->>>>>>> 83e7031a9064d4b1be9f4b11945ec84163ba9d8c
     },
     "metrics": {
 	    "mysql_alive_local":	1,
