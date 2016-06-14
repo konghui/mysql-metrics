@@ -54,30 +54,24 @@ func (my *MysqlIns) FetchData() (err error) {
 	}
 	data = Append(data, globalStatus)
 
-	glog.Infof("get global db status")
 	globalVars, err := my.GlobalVariables()
 	if err != nil {
 		return
 	}
 	data = Append(data, globalVars)
 
-	glog.Infof("get innode db status")
 	innodbState, err := my.innodbStatus()
 	if err != nil {
 		return
 	}
 	data = Append(data, innodbState)
 
-	glog.Infof("get salve status")
 	slaveState, err := my.slaveStatus()
 	if err != nil {
 		return
 	}
 	data = Append(data, slaveState)
 
-	for _, v := range data {
-		glog.Infof(v.String())
-	}
 	g.SendMetrics(data)
 	return
 }
@@ -121,12 +115,11 @@ func collect(db []string) {
 			if err != nil {
 				glog.Warningf(err.Error())
 			}
-			glog.Infof(myIns.String())
+
 			myIns.SetInterval(interval)
 			myIns.SetMetrics(metrics)
 			myIns.SetPrefix(prefix)
 			myIns.GetConnect().SetTimeout(timeout)
-			glog.Infof(myIns.String())
 
 			err = myIns.FetchData()
 			if err != nil {
