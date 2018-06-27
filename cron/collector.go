@@ -1,6 +1,7 @@
 package cron
 
 import (
+	"strings"
 	"time"
 
 	"github.com/golang/glog"
@@ -42,6 +43,20 @@ func (my *MysqlIns) FetchData() (err error) {
 	if hostname, err = my.HostName(); err != nil {
 		return
 	}
+
+	// cfg tag endpoint overwrite hostname
+	if strings.Contains(my.tag, "endpoint") {
+		tags := strings.Split(my.tag, ",")
+		tagm := map[string]string{}
+		for _, t := range tags {
+			ts := strings.Split(t, "=")
+			tagm[ts[0]] = ts[1]
+		}
+		if len(tagm["endpoint"]) > 0 {
+			hostname = tagm["endpoint"]
+		}
+	}
+
 	my.SetHostName(hostname)
 
 	defer my.GetConnect().Close()
